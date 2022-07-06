@@ -1,0 +1,27 @@
+<table border="2">
+
+    <thead>
+
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Sales Volume</th>
+            <th>Met Quota</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempSaleslist of salesPersonList">
+            <td>{{tempSaleslist.firstName}}</td>
+            <td>{{tempSaleslist.lastName}}</td>
+            <td>{{tempSaleslist.email}}</td>
+            <td>{{tempSaleslist.salesVolume | currency:'INR'}}</td>
+            <td>
+                <div *ngIf="tempSaleslist.salesVolume>500; else myElseBlock">Yes</div>
+                 <ng-template #myElseBlock>No</ng-template>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
